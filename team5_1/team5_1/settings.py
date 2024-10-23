@@ -54,7 +54,7 @@ ROOT_URLCONF = 'team5_1.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'algostudy' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -66,6 +66,10 @@ TEMPLATES = [
         },
     },
 ]
+
+
+
+
 
 WSGI_APPLICATION = 'team5_1.wsgi.application'
 
@@ -116,12 +120,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / "static"]
-TEMPLATES = [
-    {
-        'DIRS': [BASE_DIR / "templates"]
-    }
-]
+STATICFILES_DIRS = [BASE_DIR / 'algostudy' / 'static']
+
 
 
 # Default primary key field type
