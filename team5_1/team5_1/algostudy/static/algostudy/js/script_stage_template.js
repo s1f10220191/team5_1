@@ -1,4 +1,3 @@
-//script_stage_template.js
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -107,19 +106,11 @@ function sendMessage() {
     })
     .then(data => {
         const botMessage = document.createElement("p");
-        botMessage.textContent = "GPT: " + data.reply;
+        botMessage.textContent = "GPT: " + data.answer;
         chatBox.appendChild(botMessage);
     })
-    .catch(error => {
-        console.error("Error:", error);
-        const errorMessage = document.createElement("p");
-        errorMessage.textContent = "エラーが発生しました。もう一度お試しください。";
-        chatBox.appendChild(errorMessage);
-    });
+    .catch(error => console.error("Error:", error));
 
     // 入力フィールドをクリア
     input.value = "";
-
-    // チャットボックスを最新メッセージにスクロール
-    chatBox.scrollTop = chatBox.scrollHeight;
 }
