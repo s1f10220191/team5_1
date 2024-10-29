@@ -1,16 +1,23 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Quicksand", sans-serif;
     text-align: center;
     margin-top: 50px;
+
 }
 
-h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
+
 
 button {
-    padding: 10px 20px;
-    font-size: 1.5rem;
+    width: 80%;
+    height: 400px;
+    padding: 0px 20px;
+    font-size: 10rem;
     cursor: pointer;
+    border: none;
+    border-bottom: solid aquamarine  15px;
+    border-radius: 5px;
+    font-family: "Quicksand", sans-serif;
+    z-index: 2;
+    margin-bottom: 100px;
 }
+
