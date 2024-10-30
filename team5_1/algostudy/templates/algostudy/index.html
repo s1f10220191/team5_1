@@ -4,14 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400&display=swap" rel="stylesheet">
     <title>アルゴリズム学習サイト</title>
     <link rel="stylesheet" href="{% static 'algostudy/css/style.css' %}">
 </head>
-<body>
-    <h1>アルゴ学習支援サイト</h1>
-    <button id="play-btn" onclick="window.location.href='{% url 'stages' %}'">プレイする</button>
+<body >
+    <button id="play-btn" onclick="window.location.href='{% url 'stages' %}'">PRO PARK</button>
 
-
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 150" width="100%">
+        <path d="M 0 60 Q 26.67 60 53.33 30 Q 106.67 -30 160 30 Q 186.67 60 213.33 60 Q 240 60 266.67 30 Q 320 -30 373.33 30 Q 400 60 426.67 60 Q 453.33 60 480 30 Q 533.33 -30 586.67 30 Q 613.33 60 640 60 Q 666.67 60 693.33 30 Q 746.67 -30 800 30 Q 826.67 60 853.33 60 Q 880 60 906.67 30 Q 960 -30 1013.33 30 Q 1040 60 1066.67 60 Q 1093.33 60 1120 30 Q 1173.33 -30 1226.67 30 Q 1253.33 60 1280 60 Q 1306.67 60 1333.33 30 Q 1386.67 -30 1440 30 Q 1466.67 60 1493.33 60 L 1280 150 L 0 150 Z" fill="#0093e994"></path>
+    </svg>
     <script src="{% static 'algostudy/js/script.js' %}"></script>
 </body>
 </html>
