@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アルゴリズム学習サイト</title>
+    <link rel="stylesheet" href="{% static 'algostudy/css/style.css' %}">
+</head>
+<body>
+    <h1>アルゴ学習支援サイト</h1>
+    <button id="play-btn" onclick="window.location.href='{% url 'stages' %}'">プレイする</button>
+
+
+    <script src="{% static 'algostudy/js/script.js' %}"></script>
+</body>
+</html>
