@@ -1,3 +1,4 @@
+# views.py
 from django.shortcuts import render
 import openai
 import json
@@ -14,26 +15,33 @@ def stage_template(request, stage_number):
     context = {'stage_number': stage_number}
     return render(request, 'algostudy/stage_template.html', context)
 
-api_key = "89DR66YooENFUJia-v1Lc2cP0UOjCCMjTlpOv0QWKloFpOGDrAzXCfnyjbCYP6eTLYh0pJNiNT6Glv4KKFF_4Bw"
-base_url = "https://api.openai.iniad.org/api/v1"  # ベースURLはOpenAIのデフォルトを使用します
-
-client = openai.OpenAI(api_key=api_key, base_url=base_url)
+# OpenAI APIキーとベースURLを直接設定
+openai.api_key = "###"  # ここにあなたのAPIキーを入力してください
+openai.api_base = "https://api.openai.iniad.org/api/v1"
 
 @csrf_exempt
 def chat(request):
     if request.method == 'POST':
+        # リクエストからユーザーのメッセージを取得
+        data = json.loads(request.body)
+        message = data.get('message', '')
+
+        # OpenAI APIを使用して応答を生成
         try:
-            data = json.loads(request.body)  # JSONデータを解析
-            user_input = data.get('message')
-            if user_input:
-                # OpenAIのAPI呼び出し
-                response = client.chat.completions.create(
-                    model="gpt-3.5-turbo",
-                    messages=[{'role': 'user', 'content': user_input}]
-                )
-                bot_response = response['choices'][0]['message']['content']
-                return JsonResponse({'bot_response': bot_response})
-            return JsonResponse({'error': 'メッセージがありません'}, status=400)
-        except json.JSONDecodeError:
-            return JsonResponse({'error': '無効なリクエストフォーマット'}, status=400)
-    return JsonResponse({'error': 'POSTリクエストが必要です'}, status=405)
+            response = openai.ChatCompletion.create(
+                model="gpt-4",
+                messages=[
+                    {"role": "system", "content": "あなたは役に立つアシスタントです。"},
+                    {"role": "user", "content": message},
+                ],
+                max_tokens=150,
+                temperature=0.7,
+            )
+            reply = response.choices[0].message.content.strip()
+        except Exception as e:
+            reply = "エラーが発生しました。もう一度お試しください。"
+
+        # 応答をJSONで返す
+        return JsonResponse({'reply': reply})
+    else:
+        return JsonResponse({'error': '無効なリクエストです。'}, status=400)

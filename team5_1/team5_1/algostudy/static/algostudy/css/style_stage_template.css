@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.controls {
+    width: 150px;
+}
+
+.grid-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border: 1px solid black;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 50px);
+    grid-template-rows: repeat(5, 50px);
+    position: relative;  /* プレイヤーとの重なりを調整 */
+}
+
+.grid div {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #000;
+}
+
+.player {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: blue; /* プレイヤーの色を青に変更 */
+    transition: top 0.3s, left 0.3s;
+}
+
+.block {
+    width: 50px;
+    height: 50px;
+    background-color: lightblue;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+#drop-area {
+    width: 300px;
+    height: 500px;
+    border: 2px dashed #ccc;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.actions {
+    margin-top: 20px;
+    width: 100%;  /* フレックス要素の幅を調整 */
+    text-align: center;  /* ボタンを中央に配置 */
+}
+
+.goal {
+    width: 50px;
+    height: 50px;
+    background-color: red; /* ゴールの色を赤に設定 */
+}
+
+.chat-container {
+    border: 1px solid #ccc;
+    width: 300px;
+    height: 400px;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+#chat-box {
+    height: 300px;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+}
+
+#chat-input {
+    width: 80%;
+}
+
+#send-btn {
+    width: 18%;
+}
