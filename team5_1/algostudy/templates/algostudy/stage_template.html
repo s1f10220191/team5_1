@@ -1,46 +1,39 @@
 <!DOCTYPE html>
 <html lang="ja">
 {% load static %}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ステージ {{ stage_number }}</title>
     <link rel="stylesheet" href="{% static 'algostudy/css/style_stage_template.css' %}">
 </head>
-<body>
-    <h1>ステージ {{ stage_number }}</h1>
 
+<body>
+    <h1 id="stage">ステージ<span id="stageId">{{ stage_number }}</span></h1>
     <div class="container">
+        <!-- グリッド -->
+        <div class="grid-container">
+            <div class="grid"></div>
+        </div>
         <!-- コマンドブロック -->
         <div class="controls">
-            <div class="block" draggable="true" ondragstart="drag(event)" id="block-up">↑</div>
-            <div class="block" draggable="true" ondragstart="drag(event)" id="block-down">↓</div>
-            <div class="block" draggable="true" ondragstart="drag(event)" id="block-left">←</div>
-            <div class="block" draggable="true" ondragstart="drag(event)" id="block-right">→</div>
+            <div class="command" id="command-move-forward">前に進む</div>
+            <div class="command" id="command-turn-right">右に曲がる</div>
+            <div class="command" id="command-turn-left">左に曲がる</div>
+            <div class="command" id="command-turn-back">後ろを向く</div>
+            <div class="command" id="command-repeat">繰り返す</div>
+            <div class="command" id="command-wall-collision">壁にぶつかったら,,,</div>
         </div>
 
         <!-- コマンドエリア -->
-        <div id="drop-area" ondrop="drop(event)" ondragover="allowDrop(event)">
-            ドロップエリア
+        <div id="drop-area">
         </div>
 
         <!-- 実行ボタン、リセットボタン -->
         <div class="actions">
-            <button onclick="executeBlocks()">実行</button>
+            <button id="executeBlocks">実行</button>
             <button onclick="resetBlocks()">リセット</button>
-        </div>
-
-        <!-- グリッド -->
-        <div class="grid-container">
-            <div class="grid">
-                <div></div><div></div><div></div><div></div><div></div>
-                <div></div><div></div><div></div><div></div><div></div>
-                <div></div><div></div><div id="goal" class="goal"></div><div></div><div></div>
-                <div></div><div></div><div></div><div></div><div></div>
-                <div></div><div></div><div></div><div></div><div></div>
-            </div>
-            <!-- プレイヤー -->
-            <div id="player" class="player"></div>
         </div>
     </div>
     <div class="chat-container">
@@ -48,6 +41,7 @@
         <input type="text" id="chat-input" placeholder="質問を入力してください...">
         <button id="send-btn" onclick="sendMessage()">送信</button>
     </div>
-<script src="{% static 'algostudy/js/script_stage_template.js' %}"></script>
+    <script src="{% static 'algostudy/js/script_stage_template.js' %}"></script>
 </body>
+
 </html>
