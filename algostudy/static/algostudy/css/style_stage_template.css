@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.grid {
+    display: grid;
+}
+.obstacle {
+    background-color: gray; /* 障害物の色 */
+}
+.goal {
+    background-color: green; /* ゴールの色 */
+}
+
+.command {
+    background-color: aquamarine;
+    height: 20px;
+    width: 25%;
+    border: 1px solid black;
+    margin: 1px;
+}
+
+#drop-area {
+    border: 1px solid black;
+    height: 500px;
+    width: 25%;
+}
+
+#player {
+    width: 90%;  
+    height: 90%;
+    object-fit: contain;
+    transform: rotate(0deg);
+}
+
+.grid div {
+    width: 50px;  /* セルの幅 */
+    height: 50px; /* セルの高さ */
+    border: 1px solid black;
+    display: flex;              /* Flexboxを使用 */
+    align-items: center;        /* 縦方向の中央揃え */
+    justify-content: center;    /* 横方向の中央揃え */
+    position: relative;         /* 子要素の位置調整のために相対位置を指定 */
+}
+
+.chat-container {
+    border: 1px solid #ccc;
+    width: 300px;
+    height: 400px;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+#chat-box {
+    height: 300px;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+}
+
+#chat-input {
+    width: 80%;
+}
+
+#send-btn {
+    width: 18%;
+}

@@ -1,0 +1,76 @@
+{
+    "stages": [
+        {
+            "stageId": 1,
+            "gridSize": 7,
+            "grid": [
+                [1, 1, 1, 1, 1, 1, 1],
+                [1, 0, 0, 0, 0, 0, 1],
+                [1, 0, 0, 0, 0, 0, 1],
+                [1, 0, 0, 0, 0, 0, 1],
+                [1, 0, 0, 0, 0, 0, 1],
+                [1, 0, 0, 0, 0, 0, 1],
+                [1, 1, 1, 1, 1, 1, 1]
+            ],
+            "start": { "x": 1, "y": 5 },
+            "goal": { "x": 3, "y": 3 },
+            "playerImage": "/static/algostudy/img/player.png"
+        },
+        {
+            "stageId": 2,
+            "gridSize": 5,
+            "grid": [
+                [1, 0, 1, 1, 1],
+                [1, 0, 0, 0, 1],
+                [1, 0, 0, 0, 1],
+                [1, 0, 0, 0, 1],
+                [1, 1, 1, 1, 1]
+            ],
+            "start": { "x": 2, "y": 3 },
+            "goal": { "x": 2, "y": 1 },
+            "playerImage": "/static/algostudy/img/player.png"
+        },
+        {
+            "stageId": 3,
+            "gridSize": 5,
+            "grid": [
+                [1, 1, 0, 1, 1],
+                [1, 0, 0, 0, 1],
+                [1, 0, 0, 0, 1],
+                [1, 0, 0, 0, 1],
+                [1, 1, 1, 1, 1]
+            ],
+            "start": { "x": 2, "y": 3 },
+            "goal": { "x": 2, "y": 1 },
+            "playerImage": "/static/algostudy/img/player.png"
+        },
+        {
+            "stageId": 4,
+            "gridSize": 5,
+            "grid": [
+                [1, 1, 1, 0, 1],
+                [1, 0, 0, 0, 1],
+                [1, 0, 0, 0, 1],
+                [1, 0, 0, 0, 1],
+                [1, 1, 1, 1, 1]
+            ],
+            "start": { "x": 2, "y": 3 },
+            "goal": { "x": 2, "y": 1 },
+            "playerImage": "/static/algostudy/img/player.png"
+        },
+        {
+            "stageId": 5,
+            "gridSize": 5,
+            "grid": [
+                [1, 1, 1, 1, 0],
+                [1, 0, 0, 0, 1],
+                [1, 0, 0, 0, 1],
+                [1, 0, 0, 0, 1],
+                [1, 1, 1, 1, 1]
+            ],
+            "start": { "x": 2, "y": 3 },
+            "goal": { "x": 2, "y": 1 },
+            "playerImage": "/static/algostudy/img/player.png"
+        }
+    ]
+}
