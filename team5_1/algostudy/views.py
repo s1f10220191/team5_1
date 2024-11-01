@@ -15,6 +15,9 @@ def stage_template(request, stage_number):
     context = {'stage_number': stage_number}
     return render(request, 'algostudy/stage_template.html', context)
 
+def s1_view(request):
+    return render(request, "algostudy/S1.html")
+
 # OpenAI APIキーとベースURLを直接設定
 openai.api_key = "###"  # ここにあなたのAPIキーを入力してください
 openai.api_base = "https://api.openai.iniad.org/api/v1"
