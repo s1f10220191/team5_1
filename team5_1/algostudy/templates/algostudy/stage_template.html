@@ -12,10 +12,7 @@
 <body>
     <h1 id="stage">ステージ<span id="stageId">{{ stage_number }}</span></h1>
     <div class="container">
-        <!-- グリッド -->
-        <div class="grid-container">
-            <div class="grid"></div>
-        </div>
+        <div id="message"></div>
         <!-- コマンドブロック -->
         <div class="controls">
             <div class="command" id="command-move-forward">前に進む</div>
@@ -25,15 +22,17 @@
             <div class="command" id="command-repeat">繰り返す</div>
             <div class="command" id="command-wall-collision">壁にぶつかったら,,,</div>
         </div>
-
         <!-- コマンドエリア -->
         <div id="drop-area">
         </div>
-
         <!-- 実行ボタン、リセットボタン -->
         <div class="actions">
             <button id="executeBlocks">実行</button>
-            <button onclick="resetBlocks()">リセット</button>
+            <button id="resetButton">リセット</button>
+        </div>
+        <!-- グリッド -->
+        <div class="grid-container">
+            <div class="grid"></div>
         </div>
     </div>
     <div class="chat-container">
