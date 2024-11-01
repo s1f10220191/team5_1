@@ -2,9 +2,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-.grid {
-    display: grid;
-}
 .obstacle {
     background-color: gray; /* 障害物の色 */
 }
@@ -26,24 +23,35 @@ body {
     width: 25%;
 }
 
-#player {
-    width: 90%;
-    height: 90%;
-    object-fit: contain;
-    transform: rotate(0deg);
+.grid {
+    display: grid;
+    overflow: hidden;
+    width: fit-content;
+    place-items: center; 
 }
 
 .grid div {
     width: 50px;  /* セルの幅 */
     height: 50px; /* セルの高さ */
     border: 1px solid black;
-    display: flex;              /* Flexboxを使用 */
+    display: flex; 
+    position: relative;             /* Flexboxを使用 */
     align-items: center;        /* 縦方向の中央揃え */
     justify-content: center;    /* 横方向の中央揃え */
-    position: relative;         /* 子要素の位置調整のために相対位置を指定 */
+}
+
+#player {
+    width: 95%;  
+    height: 95%;
+    padding: 1px;
+    position: absolute;
+    object-fit: contain;
+    transform: rotate(0deg);
+    z-index: 5;
 }
 
 .chat-container {
+    position: relative;
     border: 1px solid #ccc;
     width: 300px;
     height: 400px;
