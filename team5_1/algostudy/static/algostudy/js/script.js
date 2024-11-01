@@ -1,4 +1,3 @@
-
 function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
@@ -15,17 +14,6 @@ function setCookie(name, value, days) {
     document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
 
-const count = 0;
-const bgm = document.getElementById('BGM')
-
-function audio_play(){
-    document.getElementById('btn-audio').currentTime = 0;
-    document.getElementById('btn-audio').play();
-}
-
-document.addEventListener('click', function(event){
-    if (event.button === 0){
-        audio_play();
-    }
+document.getElementById("play-btn").addEventListener("click", () => {
+    window.location.href = "/stages/";  // ステージ選択画面にリダイレクト
 });
-
