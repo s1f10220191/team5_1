@@ -14,6 +14,9 @@ def stage_template(request, stage_number):
     context = {'stage_number': stage_number}
     return render(request, 'algostudy/stage_template.html', context)
 
+def s1_view(request):
+    return render(request, "algostudy/S1.html")
+
 api_key = "89DR66YooENFUJia-v1Lc2cP0UOjCCMjTlpOv0QWKloFpOGDrAzXCfnyjbCYP6eTLYh0pJNiNT6Glv4KKFF_4Bw"
 base_url = "https://api.openai.iniad.org/api/v1"  # ベースURLはOpenAIのデフォルトを使用します
 
