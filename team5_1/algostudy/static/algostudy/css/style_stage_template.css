@@ -2,6 +2,24 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.flex {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    justify-content: center;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30%;
+}
+
 .obstacle {
     background-color: gray; /* 障害物の色 */
 }
@@ -10,38 +28,45 @@ body {
 }
 
 .command {
+    line-height: 40px;
     background-color: aquamarine;
-    height: 20px;
-    width: 25%;
+    height: 40px;
+    width: 90%;
+    text-align: center;
     border: 1px solid black;
     margin: 1px;
+    border-radius: 10px;
 }
 
 #drop-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border: 1px solid black;
     height: 500px;
-    width: 25%;
+    width: 90%;
 }
 
 .grid {
     display: grid;
     overflow: hidden;
     width: fit-content;
-    place-items: center; 
+    place-items: center;
 }
 
 .grid div {
     width: 50px;  /* セルの幅 */
     height: 50px; /* セルの高さ */
     border: 1px solid black;
-    display: flex; 
+    display: flex;
     position: relative;             /* Flexboxを使用 */
     align-items: center;        /* 縦方向の中央揃え */
     justify-content: center;    /* 横方向の中央揃え */
 }
 
+
 #player {
-    width: 95%;  
+    width: 95%;
     height: 95%;
     padding: 1px;
     position: absolute;
