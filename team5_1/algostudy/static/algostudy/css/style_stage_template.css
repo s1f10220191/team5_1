@@ -27,7 +27,7 @@ body {
 }
 
 #player {
-    width: 90%;  
+    width: 90%;
     height: 90%;
     object-fit: contain;
     transform: rotate(0deg);

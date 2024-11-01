@@ -14,8 +14,8 @@ button {
     font-size: 10rem;
     cursor: pointer;
     border: none;
-    border-bottom: solid aquamarine  15px;
-    border-radius: 5px;
+    border-bottom: solid aquamarine  24px;
+    border-radius: 15px;
     font-family: "Quicksand", sans-serif;
     z-index: 2;
     margin-bottom: 100px;

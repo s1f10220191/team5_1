@@ -123,3 +123,4 @@ function sendMessage() {
     // チャットボックスを最新メッセージにスクロール
     chatBox.scrollTop = chatBox.scrollHeight;
 }
+
