@@ -28,6 +28,7 @@
             <audio id="btn-audio">
                 <source src="{% static 'algostudy/audio/for_button.mp3' %}">
             </audio>
+            <button id="play-btn" onclick="window.location.href='{% url 'stages' %}'">ステージ選択へ</button>
         </ul>
     </div>
     <button id="showSettingsBtn" onclick="toggleCustomizePanel()">カスタマイズを表示</button>
