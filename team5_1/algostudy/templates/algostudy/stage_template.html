@@ -1,38 +1,64 @@
 <!DOCTYPE html>
-{% load static%}
 <html lang="ja">
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>学びの障害物よけゲーム</title>
+    <title>ブロックを動かしてみよう</title>
     <link rel="stylesheet" href="{% static 'algostudy/css/style_stage_template.css' %}">
 </head>
 <body>
-    <div class="game-container">
-        <div class="player"></div>
-    </div>
-    <div class="customize-panel hidden">
-        <h2>プログラムをカスタマイズ:</h2>
-        <textarea id="customCode" rows="4" placeholder="例: obstacleSpeed = 10;"></textarea>
-        <button onclick="applyCustomization()">実行</button>
-        <p>ヒント:</p>
-        <ul>
-            <li>障害物のスピードを速くするには <code>obstacleSpeed = 10;</code></li>
-            <li>プレイヤーの色を変えるには <code>playerColor = '#0000FF';</code></li>
-            <li>障害物の出現頻度を変えるには <code>spawnFrequency = 500;</code></li>
-            <li>背景色を変えるには <code>backgroundColor = '#FFD700';</code></li>
-            <audio autoplay loop id="BGM">
-                <source src="{% static 'algostudy/audio/bgm.mp3' %}">
-            </audio>
-            <button id="toggleBGM" onclick="toggleBGM()">BGMを停止</button>
-            <audio id="btn-audio">
-                <source src="{% static 'algostudy/audio/for_button.mp3' %}">
-            </audio>
-        </ul>
-    </div>
-    <button id="showSettingsBtn" onclick="toggleCustomizePanel()">カスタマイズを表示</button>
-    <button id="restartBtn" onclick="restartGame()">再スタート</button>
+    <h1>ブロックを動かしてみよう</h1>
 
+    <div class="container">
+        <!-- コマンドブロック -->
+        <div class="controls">
+            <div class="block" draggable="true" ondragstart="drag(event)" id="block-up">↑</div>
+            <div class="block" draggable="true" ondragstart="drag(event)" id="block-down">↓</div>
+            <div class="block" draggable="true" ondragstart="drag(event)" id="block-left">←</div>
+            <div class="block" draggable="true" ondragstart="drag(event)" id="block-right">→</div>
+        </div>
+
+        <!-- コマンドエリア -->
+        <div id="drop-area" ondrop="drop(event)" ondragover="allowDrop(event)">
+        </div>
+
+        <!-- 実行ボタン、リセットボタン -->
+        <div class="actions">
+            <button onclick="executeBlocks()">実行</button>
+            <button onclick="resetBlocks()">全体リセット</button>
+            <button onclick="resetCommands()">コマンドリセット</button> 
+        </div>
+
+        <!-- グリッド -->
+        <div class="grid-container">
+            <div class="grid">
+                <!-- 8x8のグリッド構成（合計64セル）-->
+                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+            </div>
+            <!-- プレイヤー -->
+            <div id="player" class="player"></div>
+            <!-- ゴール -->
+            <div id="goal" class="goal"></div>
+            <!-- クリア画面の要素 -->
+            <div id="clear-screen" class="clear-screen" onclick="hideClearScreen()">
+                <img src="{% static '/algostudy/img/23411851.png' %}" alt="クリア" class="clear-image">
+            </div>
+        </div>
+    </div>
+
+   <!-- <div class="chat-container">
+        <div id="chat-box"></div>
+        <input type="text" id="chat-input" placeholder="質問を入力してください...">
+        <button id="send-btn" onclick="sendMessage()">送信</button>
+    </div>    -->
     <script src="{% static 'algostudy/js/script_stage_template.js' %}"></script>
 </body>
 </html>
