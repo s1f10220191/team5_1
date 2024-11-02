@@ -4,13 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ブロックを動かしてみよう</title>
+    <title>ステージ {{ stage_number }}</title>
     <link rel="stylesheet" href="{% static 'algostudy/css/style_stage_template.css' %}">
 </head>
 <body>
-    <h1>ブロックを動かしてみよう</h1>
+    <h1>ステージ {{ stage_number }}</h1>
 
     <div class="container">
+        <!-- ステージ選択へボタン -->
+        <div class="back-to-stages">
+            <a href="/stages/"><button>ステージ選択へ</button></a>
+        </div>
+
         <!-- コマンドブロック -->
         <div class="controls">
             <div class="block" draggable="true" ondragstart="drag(event)" id="block-up">↑</div>
@@ -21,13 +26,15 @@
 
         <!-- コマンドエリア -->
         <div id="drop-area" ondrop="drop(event)" ondragover="allowDrop(event)">
+            ドロップエリア
         </div>
 
         <!-- 実行ボタン、リセットボタン -->
         <div class="actions">
             <button onclick="executeBlocks()">実行</button>
             <button onclick="resetBlocks()">全体リセット</button>
-            <button onclick="resetCommands()">コマンドリセット</button> 
+            <button onclick="resetCommands()">コマンドリセット</button>
+            <button onclick="generateObstacles()">お邪魔ブロック生成</button>
         </div>
 
         <!-- グリッド -->
@@ -49,16 +56,11 @@
             <div id="goal" class="goal"></div>
             <!-- クリア画面の要素 -->
             <div id="clear-screen" class="clear-screen" onclick="hideClearScreen()">
-                <img src="{% static '/algostudy/img/23411851.png' %}" alt="クリア" class="clear-image">
+                <img src="{% static 'algostudy/images/23411851.png' %}" alt="クリア" class="clear-image">
             </div>
         </div>
     </div>
 
-   <!-- <div class="chat-container">
-        <div id="chat-box"></div>
-        <input type="text" id="chat-input" placeholder="質問を入力してください...">
-        <button id="send-btn" onclick="sendMessage()">送信</button>
-    </div>    -->
     <script src="{% static 'algostudy/js/script_stage_template.js' %}"></script>
 </body>
 </html>
