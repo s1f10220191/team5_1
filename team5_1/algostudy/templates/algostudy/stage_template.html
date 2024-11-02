@@ -13,7 +13,14 @@
     <div class="container">
         <!-- ステージ選択へボタン -->
         <div class="back-to-stages">
-            <a href="/stages/"><button>ステージ選択へ</button></a>
+            <button onclick="window.location.href='{% url 'stages' %}'">ステージ選択へ</button></a>
+            <audio autoplay loop id="BGM">
+                <source src="{% static 'algostudy/audio/bgm.mp3' %}">
+            </audio>
+            <button id="toggleBGM" onclick="toggleBGM()">BGMを停止</button>
+            <audio id="btn-audio">
+                <source src="{% static 'algostudy/audio/for_button.mp3' %}">
+            </audio>
         </div>
 
         <!-- コマンドブロック -->
