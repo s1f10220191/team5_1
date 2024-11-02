@@ -1,6 +1,7 @@
 let commands = [];
 let position = { x: 1, y: 6 };  // プレイヤーの初期位置
 let isClear = false; // クリア状態のフラグ
+let obstacles = []; // お邪魔ブロックの位置リスト
 
 document.addEventListener("DOMContentLoaded", function () {
     movePlayer(position.x, position.y);  // 初期位置に配置
@@ -43,6 +44,7 @@ function resetBlocks() {
     movePlayer(1, 6);
     isClear = false; // クリア状態をリセット
     randomizeGoal();  // ゴールの位置をランダムに変更
+    clearObstacles(); // お邪魔ブロックもリセット
     hideClearScreen(); // クリア画面を非表示に設定
 }
 
@@ -62,6 +64,14 @@ function executeBlocks() {
             if (command === 'down') position.y = Math.min(7, position.y + 1);
             if (command === 'left') position.x = Math.max(0, position.x - 1);
             if (command === 'right') position.x = Math.min(7, position.x + 1);
+
+            // お邪魔ブロックの位置にいるかチェック
+            if (isObstacle(position.x, position.y)) {
+                alert("お邪魔ブロックにぶつかりました！");
+                resetBlocks(); // ぶつかったらリセット
+                return;
+            }
+
             movePlayer(position.x, position.y);
 
             // 最後のコマンドが実行されたときにクリアを確認
@@ -92,6 +102,45 @@ function hideClearScreen() {
     const clearScreen = document.getElementById('clear-screen');
     clearScreen.style.display = 'none';
     resetBlocks(); // 盤面もリセット
+}
+
+function generateObstacles() {
+    clearObstacles(); // 既存のお邪魔ブロックをクリア
+
+    // ランダムに1~5個のお邪魔ブロックを生成
+    const obstacleCount = Math.floor(Math.random() * 5) + 1;
+    for (let i = 0; i < obstacleCount; i++) {
+        let obstacleX, obstacleY;
+        do {
+            obstacleX = Math.floor(Math.random() * 8);
+            obstacleY = Math.floor(Math.random() * 8);
+        } while (
+            (obstacleX === position.x && obstacleY === position.y) || // スタート地点
+            (obstacleX === parseInt(goal.style.left) / 50 && obstacleY === parseInt(goal.style.top) / 50) || // ゴール地点
+            isObstacle(obstacleX, obstacleY) // 既に障害物がある位置
+        );
+
+        obstacles.push({ x: obstacleX, y: obstacleY });
+        createObstacleElement(obstacleX, obstacleY);
+    }
+}
+
+function createObstacleElement(x, y) {
+    const obstacle = document.createElement("div");
+    obstacle.classList.add("obstacle");
+    obstacle.style.left = x * 50 + "px";
+    obstacle.style.top = y * 50 + "px";
+    document.querySelector(".grid-container").appendChild(obstacle);
+}
+
+function clearObstacles() {
+    obstacles = []; // お邪魔ブロックの位置リストをクリア
+    const existingObstacles = document.querySelectorAll(".obstacle");
+    existingObstacles.forEach(obstacle => obstacle.remove());
+}
+
+function isObstacle(x, y) {
+    return obstacles.some(obstacle => obstacle.x === x && obstacle.y === y);
 }
 
 function allowDrop(ev) {
